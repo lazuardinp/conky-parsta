@@ -1,0 +1,69 @@
+background yes
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 5
+maximum_width 1366
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color red
+default_outline_color black
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers no
+uppercase no
+cpu_avg_samples 4
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+text_buffer_size 256
+
+TEXT
+${voffset -10}
+${font sao:size=20}${color DimGray}${alignc}Computer Info
+
+${voffset 175}
+${font sao:bold:size=10}${color dimgray}$alignc [ C O M P U T E R ]
+${font sao:size=10}${color dimgray}  Operating System $alignr $sysname
+  Kernel Version $alignr $kernel
+  Hostname $alignr $nodename
+  Processor $alignr Intel Core i3
+  Architecture $alignr $machine
+  CPU $alignr ${cpu cpu0}%
+  RAM $alignr $memfree / $memmax
+  Temperature $alignr ${acpitemp} 'C
+  Battery $alignr ${battery BAT1}
+
+${font sao:bold:size=10}${color dimgray}$alignc [ D I S K ]${font sao:size=10}
+  System $alignr ${fs_free /} / ${fs_size /}
+  Home $alignr ${fs_free /home} / ${fs_size /home}
+  D A T A $alignr ${fs_free /media/data} / ${fs_size /media/data}
+  
+${font sao:bold:size=10}${color dimgray}$alignc [ M U S I C ]${color DimGray}${color DimGray}$font${if_running audacious}
+ ${font sao:size=10}$alignc ${exec audtool --current-song}
+ $alignc $audacious_position / $audacious_length
+ $audacious_bar
+ $else
+ ${font sao:size=10}
+ $alignc Audacious Not Running
+
+ $endif
+${voffset -35}
+${font sao:size=30}$alignc${time %H:%M:%S}
+${voffset -80}
+${font sao:size=15}$alignc${time %d %b %Y}
+
+${voffset -25}
+${image ~/.conkyParSta/panelv.png -p -5,-3 -s 270x748}
+${image ~/.conkyParSta/info_logo.png -p 45,90 -s 183x133}

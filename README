@@ -1,0 +1,6 @@
+How to use ParSta conky :
+1. Install SaoFont.otf
+2. Copy '.conkyrc' and '.conkyParSta' into your /home folder
+3. Open terminal
+4. Type 'killall conky' then type 'conky' to refresh your conky
+5. Enjoy 
